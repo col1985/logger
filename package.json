@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/col1985/logger",
   "dependencies": {
-    "logger": "git+https://github.com/col1985/logger.git",
     "winston": "^0.8.0"
   }
 }

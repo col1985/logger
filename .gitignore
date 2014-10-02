@@ -8,6 +8,7 @@
 .sass-cache
 .tmp_*
 /docs
+node_modules
 /resources/docs
 /docs/*
 fhc-*

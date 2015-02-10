@@ -2,6 +2,7 @@
     "browser": true,
     "node": true,
     "jquery": true,
+    "console":true,
 
     "debug": false,
     "devel": true,
@@ -40,7 +41,7 @@
     "sub": true,
     "trailing": true,
     "white": false,
-    "indent": 4,
+    "indent": 2,
 
     "maxparams": 5,
     "maxdepth": 5,

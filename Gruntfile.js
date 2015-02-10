@@ -14,11 +14,20 @@ module.exports = function (grunt) {
         // and any other specfic project configm required
         pkg: grunt.file.readJSON('package.json'),
 
-        shell: {},
+        shell: {
+            mocha: {
+                options: {
+                    stdout: true,
+                    stderr: true
+                },
+                command: 'mocha test'
+            }
+        },
 
         jshint: {
             with_overrides: {
                 options: grunt.config('jshintrc'),
+                reporter: require('jshint-stylish'),
                 files: {
                     src: ['*.js', 'lib/*.js', 'test/*.js', '!node_moduels']
                 }
@@ -40,6 +49,6 @@ module.exports = function (grunt) {
 
     });
 
-    // register a task to format project dependencies
     grunt.registerTask('format', ['lintspaces', 'jshint:with_overrides']);
+    grunt.registerTask('test', ['shell:mocha']);
 };

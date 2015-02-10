@@ -24,7 +24,7 @@ npm install stdout-logger
 
 Default settings of instance Winston Logger.
 
-```json
+```javascript
 
   {
       "colorize": true, // set to false to turn colorized messaging off.

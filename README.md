@@ -1,34 +1,73 @@
-myLogger
+stdout-logger
 ====
 
-![Build Passing](https://travis-ci.org/col1985/myLogger.svg?branch=master)
-[![NPM version](https://badge.fury.io/js/myLogger.svg)](http://badge.fury.io/js/myLogger)
+![Build Passing](https://travis-ci.org/col1985/logger.svg?branch=master)
+[![NPM version](https://badge.fury.io/js/stdout-logger.svg)](http://badge.fury.io/js/stdout-logger)
 
-Basic logging module using node module Winston and configured to personal prefernece.
+This is my preferred configuration of Winston Logger module. I think it is nice a simple!
 
-###How to install
+stdout-logger default logging level is ```debug``` and will look for a environment variable DEV_ENV or defaults to ```"DEV"```. If set to ```"PROD"``` logging level is set to ```info``` and colorized logging is turned off!  
 
-This module has not been published to NPM yet as I need to write some tests, but if you want 
-to use the module in your project you can install via npm by entering the following command, 
+Basic look and feel... 
+
+![logger_output](https://github.com/col1985/logger/raw/master/logger_output.png)
+
+### How to install?
+
+From command line.. 
 
 ```bash
-npm install git+https://github.com/col1985/logger.git --save
+npm install stdout-logger
 ```
 
-###How to use?
+### stdout-logger default config
+
+Default settings of instance Winston Logger.
+
+```json
+
+  {
+      "colorize": true, // set to false to turn colorized messaging off.
+      "json": false, // set to true to turn json formated messaging on.
+      "slient": false, // set to true to turn off messaging
+      "handleExceptions": true, // set to false to turn off handling exceptions
+      "level": "debug", 
+      "timestamp": function () {
+          return new Date().toUTCString();
+      }
+  }
+
+```
+
+### stdout-logger levels
+
++ Level 0 ::  ```debug```
++ Level 1 :: ```info```
++ Level 2 :: ```silly```
++ Level 3 :: ```warn```
++ Level 4 :: ```error```
+
+### How to use?
+
+Very easy.. see example below.
 
 ```javascript
     
 // require module
-var logger = require('logger')();
+var Logger = require('stdout-logger'),
+  myLogger = Logger.getLogger();
+
+Logger.set('colorize', false); 
+Logger.set('level', 'error');
+
+// returns "error"
+console.log(Logger.get('level'));
 
 // Now use logger 
-logger('info', 'Hello World');
-logger('debug', JSON.stringify({debug: 'Object'}, null, 2));
-logger('warn', 'Hello World');
-logger('silly', 'Hello World');
-logger('error',  JSON.stringify({error: 'Object'}, null, 2));
-```
+myLogger('info', 'Hello World');
+myLogger('debug', JSON.stringify({debug: 'Object'}, null, 2));
+myLogger('warn', 'Hello World');
+myLogger('silly', 'Hello World');
+myLogger('error',  JSON.stringify({error: 'Object'}, null, 2));
 
-####Sample Shell output
-![logger_output](https://github.com/col1985/logger/raw/master/logger_output.png)
+```

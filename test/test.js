@@ -1,6 +1,6 @@
 describe('myLogger module', function () {
 
-    var Logger = require('./../lib/Logger'),
+    var Logger = require('../index'),
         myLogger = Logger.getLogger();
 
     // we use child process to excute parser via CLI

@@ -1,1 +1,1 @@
-require('./lib/Logger');
+module.exports = require('./lib/Logger');

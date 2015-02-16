@@ -1,6 +1,10 @@
+var assert = require("assert");
+var fs = require("fs");
+require("shelljs/global");
+
 describe('myLogger module', function () {
 
-    var Logger = require('./../lib/Logger'),
+    var Logger = require('../index'),
         myLogger = Logger.getLogger();
 
     // we use child process to excute parser via CLI
@@ -8,7 +12,7 @@ describe('myLogger module', function () {
         if (Logger) {
             done();
         } else {
-            return done('Failed to instantciate Logger');
+            return done('Failed to instantiate Logger');
         }
     });
 
@@ -17,7 +21,7 @@ describe('myLogger module', function () {
         if (myLogger) {
             done();
         } else {
-            return done('Failed to instantciate myLogger');
+            return done('Failed to instantiate myLogger');
         }
     });
 
@@ -32,7 +36,7 @@ describe('myLogger module', function () {
 
             done();
         } else {
-            return done('Failed to instantciate myLogger');
+            return done('Failed to instantiate myLogger');
         }
     });
 
@@ -43,7 +47,7 @@ describe('myLogger module', function () {
                 done();
             }
         } else {
-            return done('Failed to instantciate myLogger');
+            return done('Failed to instantiate myLogger');
         }
     });
 
@@ -54,7 +58,7 @@ describe('myLogger module', function () {
                 done();
             }
         } else {
-            return done('Failed to instantciate myLogger');
+            return done('Failed to instantiate myLogger');
         }
     });
 
@@ -65,7 +69,7 @@ describe('myLogger module', function () {
                 done();
             }
         } else {
-            return done('Failed to instantciate myLogger');
+            return done('Failed to instantiate myLogger');
         }
     });
 
@@ -76,7 +80,33 @@ describe('myLogger module', function () {
                 done();
             }
         } else {
-            return done('Failed to instantciate myLogger');
+            return done('Failed to instantiate myLogger');
         }
     });
+
+    it('should have logToFile available', function (done) {
+      assert(Logger["logToFile"]);
+      done();
+    });
+
+    it('should log to file if specified', function (done) {
+      var testFile = __dirname+"/test.tmp.log";
+      Logger.logToFile(testFile);
+      myLogger("info", "hello world", function(err){
+        assert(fs.existsSync(testFile));
+
+        var grepCommand = 'grep -q "hello world" ' + testFile;
+        exec(grepCommand, function(code){
+          assert(code === 0);
+
+          fs.unlink(testFile, function(err){
+            if(err){ assert(false); }
+            assert(fs.existsSync(testFile) === false);
+            done();
+          })
+
+        });
+      });
+    });
+
 });

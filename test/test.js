@@ -24,11 +24,13 @@ describe('myLogger module', function () {
     it('should return a colorized output for log level', function (done) {
         if (myLogger) {
 
+            console.log('\n\n');
             myLogger('debug', 'test debug level');
             myLogger('info', 'test info level');
             myLogger('silly', 'test silly level');
             myLogger('warn', 'test warn level');
             myLogger('error', 'test error level');
+            console.log('\n');
 
             done();
         } else {

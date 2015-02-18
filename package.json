@@ -1,8 +1,8 @@
 {
   "name": "stdout-logger",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Node.js Winston logger prefernece configuration ",
-  "main": "index.js",
+  "main": "./lib/Logger.js",
   "scripts": {
     "test": "grunt test"
   },
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/col1985/logger",
   "dependencies": {
-    "winston": "^0.8.0"
+    "winston": "~0.9.0"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

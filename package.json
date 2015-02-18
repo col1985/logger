@@ -1,7 +1,7 @@
 {
   "name": "stdout-logger",
   "version": "0.1.2",
-  "description": "Node.js Winston logger prefernece configuration ",
+  "description": "Node.js Winston logger prefernece configuration",
   "main": "./lib/Logger.js",
   "scripts": {
     "test": "grunt test"

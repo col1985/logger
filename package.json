@@ -1,6 +1,6 @@
 {
   "name": "stdout-logger",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Node.js Winston logger prefernece configuration for sue while developing locally and in the FeedHenry platform",
   "main": "./lib/Logger.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "keywords": [
     "FeedHenry",
     "environemnts",
-    "environemnt variobales",
+    "environemnt varibales",
     "Node",
     "Winston",
     "logger",
@@ -27,9 +27,9 @@
   },
   "homepage": "https://github.com/col1985/logger",
   "dependencies": {
-    "lodash": "^3.9.3",
-    "moment": "^2.10.3",
-    "winston": "~0.9.0"
+    "lodash": "3.9.3",
+    "moment": "2.10.3",
+    "winston": "0.9.0"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

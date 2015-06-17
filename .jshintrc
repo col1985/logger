@@ -42,6 +42,7 @@
     "trailing": true,
     "white": false,
     "indent": 2,
+    "smarttabs":true,
 
     "maxparams": 5,
     "maxdepth": 5,

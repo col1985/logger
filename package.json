@@ -1,6 +1,6 @@
 {
   "name": "stdout-logger",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Node.js Winston logger prefernece configuration for sue while developing locally and in the FeedHenry platform",
   "main": "./lib/Logger.js",
   "scripts": {

@@ -47,6 +47,15 @@ module.exports = function (grunt) {
             }
         },
 
+        env: {
+            options: {},
+            // environment variables - see https://github.com/jsoverson/grunt-env for more information
+            local: {
+                LOG_LEVEL: 'verbose',
+                ENVIRONMENT: 'local_dev'
+            }
+        },
+
     });
 
     grunt.registerTask('format', ['lintspaces', 'jshint:with_overrides']);
